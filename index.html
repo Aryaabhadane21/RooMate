@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RooMate — Premium Shared Housing</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="navbar__logo">room<span>ate.</span></a>
+        <ul class="navbar__links" id="navbar-links">
+            <li><a href="listings.html">Listings</a></li>
+            <li><a href="people.html">Find People</a></li>
+            <li><a href="quiz.html">Compatibility</a></li>
+            <li><a href="profile.html">Dashboard</a></li>
+            <li><a href="quiz.html" class="navbar__cta">Find My Match</a></li>
+        </ul>
+        <button class="hamburger" onclick="toggleNav()" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <section class="hero-magazine">
+        <div class="hero-magazine__header">
+            <div class="hero-magazine__left">
+                <span class="badge-pill"><span class="pill-dot"></span> Shared Living, Harmonized</span>
+                <h1 class="hero-magazine__title">Architecting the<br>Perfect Balance of<br>Shared Living</h1>
+            </div>
+            <div class="hero-magazine__right">
+                <div class="star-icon">✦</div>
+                <p class="hero-magazine__description">
+                    Advanced compatibility matching for modern residents. We focus on lifestyle synergy and structural
+                    alignment
+                    to build cohesive urban communities.
+                </p>
+            </div>
+        </div>
+
+        <div class="hero-magazine__visual">
+            <img src="assets/2.png" alt="Modern Architectural Residence" class="hero-magazine__img">
+        </div>
+    </section>
+
+    <section class="search-section">
+        <div class="search-bar">
+            <div class="search-group">
+                <label for="filter-location">Location</label>
+                <input type="text" id="filter-location" placeholder="e.g. Bandra, Mumbai" />
+            </div>
+            <div class="search-group">
+                <label for="filter-budget">Max Budget (₹)</label>
+                <input type="number" id="filter-budget" placeholder="e.g. 15000" />
+            </div>
+            <div class="search-group">
+                <label for="filter-rooms">Min BHK</label>
+                <select id="filter-rooms">
+                    <option value="0">Any</option>
+                    <option value="2">2+</option>
+                    <option value="3">3+</option>
+                    <option value="4">4+</option>
+                </select>
+            </div>
+            <button id="search-btn" class="btn btn--primary" onclick="performHomeSearch()">Search</button>
+        </div>
+    </section>
+
+    <script>
+        function performHomeSearch() {
+            const searchData = {
+                location: document.getElementById('filter-location').value,
+                budget: document.getElementById('filter-budget').value,
+                rooms: document.getElementById('filter-rooms').value
+            };
+            localStorage.setItem('roomate_search', JSON.stringify(searchData));
+            window.location.href = 'listings.html';
+        }
+    </script>
+
+    <section class="stats-section" id="stats-section" style="margin-top: 4rem;">
+        <div class="stats-inner">
+            <div class="stat-item">
+                <span class="stat-num" data-target="2847">0</span>
+                <span class="stat-label">Verified Listings</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num" data-target="15623">0</span>
+                <span class="stat-label">Matches Made</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num" data-target="94">0</span>
+                <span class="stat-label">User Satisfaction</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num" data-target="320">0</span>
+                <span class="stat-label">Urban Hubs</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="compat-banner">
+            <div class="compat-banner__text">
+                <h2>Architect Your Ideal Living Arrangement</h2>
+                <p>Data-driven compatibility matching based on lifestyle, habits, and financial preferences.</p>
+            </div>
+            <a href="quiz.html" class="btn btn--outline" style="border-color: #fff; color: #fff;">Begin Assessment</a>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="footer-brand__logo">room<span>ate.</span></div>
+                <p>Curating shared living spaces with architectural precision across modern urban centers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Experience</h4>
+                <ul>
+                    <li><a href="listings.html">Listings</a></li>
+                    <li><a href="people.html">People Matching</a></li>
+                    <li><a href="quiz.html">Assessment</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>System</h4>
+                <ul>
+                    <li><a href="#">Architecture</a></li>
+                    <li><a href="#">Security</a></li>
+                    <li><a href="#">The Grid</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Journal</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 RooMate Technologies — All Rights Reserved.</span>
+            <div class="footer-bottom__links">
+                <a href="#">Terms of Protocol</a>
+                <a href="#">Privacy Framework</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/listings.js"></script>
+</body>
+
+</html>

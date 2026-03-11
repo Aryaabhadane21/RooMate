@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — RooMate</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .dash-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 4rem 5% 0;
+      max-width: 1600px;
+      margin: 0 auto;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .dash-profile-img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      box-shadow: 30px 30px 0 var(--border);
+    }
+
+    .dash-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin: 4rem 5%;
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dash-stat-item h4 {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .dash-stat-item .val {
+      font-size: 2.5rem;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+    }
+
+    .dash-section {
+      padding: 4rem 5%;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .dash-section__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 3rem;
+    }
+
+    .bento-card {
+      border: 1px solid var(--border);
+      padding: 3rem;
+      height: 100%;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .mini-card {
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .mini-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-5px);
+    }
+
+    .mini-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .mini-card__body {
+      padding: 1.5rem;
+    }
+
+    @media (max-width: 1000px) {
+
+      .dash-hero,
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .dash-profile-img {
+        height: 350px;
+      }
+
+      .dash-stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="navbar__logo">room<span>ate.</span></a>
+    <ul class="navbar__links" id="navbar-links">
+      <li><a href="listings.html">Listings</a></li>
+      <li><a href="people.html">Find People</a></li>
+      <li><a href="quiz.html">Compatibility</a></li>
+      <li><a href="profile.html" class="active">Dashboard</a></li>
+      <li><a href="quiz.html" class="navbar__cta">Find My Match</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleNav()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <header class="dash-hero">
+    <div class="dash-hero__content">
+      <span class="eyebrow">Verified Resident</span>
+      <h1 style="margin: 1rem 0;">Arjun<br>Sharma</h1>
+      <p style="font-size: 1.25rem; line-height: 1.6; max-width: 450px;">
+        Architectural lead based in Mumbai Suburban. <br>
+        Currently seeking a 2BHK residence with systematic protocol and high natural illumination.
+      </p>
+      <div style="margin-top: 3rem; display: flex; gap: 1rem;">
+        <button class="btn btn--primary"
+          onclick="window.scrollTo({top: document.getElementById('edit-section').offsetTop - 100, behavior: 'smooth'})">Modify
+          Profile</button>
+        <a href="quiz.html" class="btn btn--outline">Recalibrate Compatibility</a>
+      </div>
+    </div>
+    <div class="dash-hero__visual">
+      <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260"
+        alt="Arjun Sharma" class="dash-profile-img">
+    </div>
+  </header>
+
+  <div class="dash-stats-grid">
+    <div class="dash-stat-item">
+      <h4>Global Match Score</h4>
+      <div class="val">88%</div>
+    </div>
+    <div class="dash-stat-item">
+      <h4>Saved Assets</h4>
+      <div class="val">5</div>
+    </div>
+    <div class="dash-stat-item">
+      <h4>Active Dialogues</h4>
+      <div class="val">3</div>
+    </div>
+    <div class="dash-stat-item">
+      <h4>Verification Level</h4>
+      <div class="val">Tier 1</div>
+    </div>
+  </div>
+
+  <section class="dash-section">
+    <div class="bento-grid">
+      <div class="bento-card">
+        <h3>Lifestyle Profile</h3>
+        <p style="margin-bottom: 2rem;">Current assessment parameters based on the compatibility matrix.</p>
+        <div class="pref-list" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+          <div class="pref-item">
+            <div class="pref-item__label">Circadian Rhythm</div>
+            <div class="pref-item__value">Diurnal (06:00 – 22:00)</div>
+          </div>
+          <div class="pref-item">
+            <div class="pref-item__label">Hygiene Standard</div>
+            <div class="pref-item__value">High — Systematic Cleaning</div>
+          </div>
+          <div class="pref-item">
+            <div class="pref-item__label">Domestic Animals</div>
+            <div class="pref-item__value">Feline Friendly</div>
+          </div>
+          <div class="pref-item">
+            <div class="pref-item__label">Visitor Policy</div>
+            <div class="pref-item__value">Scheduled Engagements</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bento-card" style="background: #F2F2F2;">
+        <h3>Fiscal Forecast</h3>
+        <div class="form-group" style="margin: 2rem 0;">
+          <label>Projected Shared Occupancy</label>
+          <select id="num-roommates" style="background:#fff">
+            <option value="2">2 Residents</option>
+            <option value="3">3 Residents</option>
+            <option value="4">4 Residents</option>
+          </select>
+        </div>
+        <div class="utility-grid" style="display:flex; flex-direction:column; gap:1rem;">
+          <div
+            style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border); padding-bottom:0.5rem">
+            <span>Electricity</span> <strong id="util-electricity">₹900</strong>
+          </div>
+          <div
+            style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border); padding-bottom:0.5rem">
+            <span>Internet</span> <strong id="util-internet">₹400</strong>
+          </div>
+          <div
+            style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border); padding-bottom:0.5rem">
+            <span>Total Utilities</span> <strong id="util-total" style="font-size:1.5rem">₹1,800</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dash-section" style="background: #fff; border-top: 1px solid var(--border);">
+    <div class="dash-section__header">
+      <h2>Curated Shortlist</h2>
+      <a href="listings.html" class="btn btn--outline btn--sm">View Global Inventory</a>
+    </div>
+    <div class="gallery-grid">
+      <div class="mini-card">
+        <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800"
+          alt="Property">
+        <div class="mini-card__body">
+          <p class="eyebrow">Bandra West</p>
+          <h4 style="margin: 0.5rem 0;">Architectural 3BHK</h4>
+          <p style="font-size: 0.9rem;">₹18,000 / person</p>
+        </div>
+      </div>
+      <div class="mini-card">
+        <img src="https://images.pexels.com/photos/2724748/pexels-photo-2724748.jpeg?auto=compress&cs=tinysrgb&w=800"
+          alt="Property">
+        <div class="mini-card__body">
+          <p class="eyebrow">Koramangala</p>
+          <h4 style="margin: 0.5rem 0;">Cozy 2BHK</h4>
+          <p style="font-size: 0.9rem;">₹12,000 / person</p>
+        </div>
+      </div>
+      <div class="mini-card">
+        <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=800"
+          alt="Property">
+        <div class="mini-card__body">
+          <p class="eyebrow">Hauz Khas</p>
+          <h4 style="margin: 0.5rem 0;">Modern Villa</h4>
+          <p style="font-size: 0.9rem;">₹16,000 / person</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dash-section" id="edit-section" style="border-top: 1px solid var(--border); background: #F9F9F9;">
+    <div class="dash-section__header">
+      <h2>Resident Parameters</h2>
+      <button id="save-btn" class="btn btn--primary">Save Profile</button>
+    </div>
+
+    <div class="bento-grid">
+      <div class="bento-card" style="background: #fff;">
+        <div class="form-row" style="display:grid; grid-template-columns: 1fr 1fr; gap:2rem;">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="profile-name" value="Arjun Sharma" />
+          </div>
+          <div class="form-group">
+            <label>Age</label>
+            <input type="number" id="profile-age" value="26" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Narrative Description</label>
+          <textarea id="profile-bio"
+            rows="4">Software architect, focused on systematic living environments. Prioritizes tranquility and structural order.</textarea>
+        </div>
+      </div>
+      <div class="bento-card" style="background: #fff;">
+        <label
+          style="display:block; margin-bottom:1rem; font-weight:800; font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; color:var(--muted)">Lifestyle
+          Attributes</label>
+        <div class="tag-wrap">
+          <span class="lifestyle-toggle active" data-on="1" onclick="toggleTag(this)">Early Bird</span>
+          <span class="lifestyle-toggle" onclick="toggleTag(this)">Night Owl</span>
+          <span class="lifestyle-toggle active" data-on="1" onclick="toggleTag(this)">Remote Work</span>
+          <span class="lifestyle-toggle active" data-on="1" onclick="toggleTag(this)">Systematic</span>
+          <span class="lifestyle-toggle active" data-on="1" onclick="toggleTag(this)">Silence Protocol</span>
+          <span class="lifestyle-toggle" onclick="toggleTag(this)">Non-Smoker</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/profile.js"></script>
+</body>
+
+</html>
