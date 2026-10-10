@@ -2,6 +2,7 @@
 
 **RooMate** is a modern, interactive web application designed to simplify the process of finding shared accommodation and compatible flatmates across India's top urban hubs (Mumbai, Bengaluru, Delhi, Hyderabad, Pune, Chennai). Built with a focus on editorial visual design, lifestyle synergy, and habit compatibility, it offers a seamless way to browse listings and connect with like-minded individuals.
 
+Live Link: https://roomate2.netlify.app/
 ---
 
 ## 🌟 Key Features
