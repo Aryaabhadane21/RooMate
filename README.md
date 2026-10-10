@@ -1,10 +1,5 @@
 # RooMate – Find Your Perfect Shared Home in India 🏠
 
-[![GitHub Repo](https://img.shields.io/badge/GitHub-Aryaabhadane21%2FRooMate-blue?logo=github)](https://github.com/Aryaabhadane21/RooMate)
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_Site-success?style=for-the-badge&logo=vercel)](https://aryaabhadane21.github.io/RooMate/)
-
-> 🚀 **Live Demo:** [https://aryaabhadane21.github.io/RooMate/](https://aryaabhadane21.github.io/RooMate/) *(Update this with your deployed URL once live)*
-
 **RooMate** is a modern, interactive web application designed to simplify the process of finding shared accommodation and compatible flatmates across India's top urban hubs (Mumbai, Bengaluru, Delhi, Hyderabad, Pune, Chennai). Built with a focus on editorial visual design, lifestyle synergy, and habit compatibility, it offers a seamless way to browse listings and connect with like-minded individuals.
 
 ---
@@ -97,18 +92,3 @@ RooMate/
 
 ---
 
-## 🌐 Deployment Instructions
-
-### Deploying to GitHub Pages
-1. Go to your repository on GitHub: `https://github.com/Aryaabhadane21/RooMate`.
-2. Click on **Settings** > **Pages** (under Code and automation).
-3. Under **Branch**, select `main` and folder `/ (root)`, then click **Save**.
-4. Your site will be live at: `https://aryaabhadane21.github.io/RooMate/`.
-
-*(Note: Ensure your GitHub repository maintains the folder structure with `css/`, `js/`, and `assets/` so styles and scripts load correctly).*
-
----
-
-## 📄 Credits & Academic Information
-Developed as a PropTech & Shared Living academic project.  
-© 2026 RooMate Technologies.
