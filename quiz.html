@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RooMate — Compatibility Assessment</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="navbar__logo">room<span>ate.</span></a>
+    <ul class="navbar__links" id="navbar-links">
+      <li><a href="listings.html">Listings</a></li>
+      <li><a href="people.html">Find People</a></li>
+      <li><a href="quiz.html" class="active">Compatibility</a></li>
+      <li><a href="profile.html">Dashboard</a></li>
+      <li><a href="quiz.html" class="navbar__cta">Find My Match</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleNav()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main class="quiz-page">
+
+    <div style="text-align:center;margin-bottom:4rem">
+      <span class="badge-pill">Metric-Based Matching</span>
+      <h1>Lifestyle<br>Assessment</h1>
+      <p style="max-width: 500px; margin: 1rem auto;">A 7-point diagnostic to evaluate your compatibility within shared
+        residential environments.</p>
+    </div>
+
+    <div class="quiz-progress">
+      <div class="quiz-progress__row">
+        <span id="progress-text"
+          style="font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.7rem;">Parameter 1 of
+          7</span>
+        <span id="progress-pct" style="font-weight: 800; font-size: 0.7rem;">0% Complete</span>
+      </div>
+      <div class="quiz-progress__bar">
+        <div class="quiz-progress__fill" id="progress-fill" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div id="quiz-container"></div>
+
+    <div class="quiz-nav">
+      <button class="btn btn--outline" id="btn-prev" onclick="prevQuestion()" style="display:none">Previous</button>
+      <button class="btn btn--primary" id="btn-next" onclick="nextQuestion()" style="margin-left:auto">Proceed</button>
+    </div>
+
+    <p
+      style="text-align:center;margin-top:3rem;font-size:.8rem;color:var(--muted); text-transform: uppercase; letter-spacing: 0.05em;">
+      Continue to <a href="listings.html"
+        style="color:var(--primary);font-weight:800; border-bottom: 1px solid var(--primary)">Portfolios</a>
+    </p>
+
+  </main>
+
+
+  <script src="js/quiz.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RooMate — Social Discovery</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="navbar__logo">room<span>ate.</span></a>
+    <ul class="navbar__links" id="navbar-links">
+      <li><a href="listings.html">Listings</a></li>
+      <li><a href="people.html" class="active">Find People</a></li>
+      <li><a href="quiz.html">Compatibility</a></li>
+      <li><a href="profile.html">Dashboard</a></li>
+      <li><a href="quiz.html" class="navbar__cta">Find My Match</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleNav()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main>
+    <div class="people-page">
+      <div class="people-page__header">
+        <span class="badge-pill">Human-Centric Search</span>
+        <h1>Curated Matches</h1>
+        <p>Assess lifestyle compatibility through our proprietary matching engine.</p>
+      </div>
+
+      <div class="swipe-count-bar">
+        <strong id="cards-left">6</strong> active profiles in your vicinity
+      </div>
+
+      <div class="card-stack" id="card-stack"></div>
+
+      <div class="swipe-actions">
+        <button class="swipe-btn pass" onclick="swipeCard('left')" title="Pass">Pass</button>
+        <button class="swipe-btn info" onclick="toggleChat()" title="Message">Chat</button>
+        <button class="swipe-btn like" onclick="swipeCard('right')" title="Match">Connect</button>
+      </div>
+    </div>
+  </main>
+
+
+  <div class="onboard-overlay" id="onboard-overlay">
+    <div class="onboard-card">
+      <div class="ob-steps">
+        <div class="ob-step-dot active" id="ob-dot-1"></div>
+        <div class="ob-step-dot" id="ob-dot-2"></div>
+        <div class="ob-step-dot" id="ob-dot-3"></div>
+      </div>
+      <div class="ob-body" id="ob-body"></div>
+      <div class="ob-footer">
+        <button class="ob-skip" onclick="closeOnboard()">Skip</button>
+        <span class="ob-count" id="ob-count">Set up 1 of 3</span>
+        <button class="btn btn--primary" id="ob-next-btn" onclick="obNext()">Proceed</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="compat-modal" id="compat-modal" role="dialog" aria-modal="true">
+    <button class="compat-modal__close" onclick="closeCompatModal()" aria-label="Close">Exit</button>
+    <p class="compat-modal__title" id="modal-title">Analyzing compatibility parameters...</p>
+    <button class="compat-check-btn" id="compat-check-btn" onclick="triggerCompatCheck()">
+      <span>Run Analysis</span>
+    </button>
+    <div class="compat-stage" id="compat-stage">
+      <div class="compat-room compat-room--user" id="user-room"></div>
+      <div class="compat-room compat-room--match" id="match-room"></div>
+    </div>
+    <div class="compat-score-wrap" id="compat-score-wrap"></div>
+    <div class="compat-modal__actions">
+      <button class="btn--ghost" onclick="resetMerge()">Reset</button>
+      <button class="btn--ghost" onclick="closeCompatModal()">Close</button>
+    </div>
+  </div>
+
+  <button class="chat-fab" id="chat-fab" onclick="toggleChat()" aria-label="Open chat">
+    Chat
+    <span class="unread" id="chat-unread">3</span>
+  </button>
+
+  <div class="chat-panel" id="chat-panel">
+    <div class="cp-header">
+      <div class="cp-avatar">P</div>
+      <div>
+        <h3>Match Insight</h3>
+        <span>active communication</span>
+      </div>
+    </div>
+    <div class="cp-msgs" id="cp-msgs">
+      <div class="cp-time">Communication History</div>
+      <div class="cp-msg them">Established match — 94% compatibility</div>
+      <div class="cp-msg me">Beginning dialogue...</div>
+    </div>
+    <div class="cp-input-row">
+      <input class="cp-input" id="cp-input" type="text" placeholder="Send message..." />
+      <button class="cp-send" onclick="sendMsg()">Send</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/people.js"></script>
+</body>
+
+</html>

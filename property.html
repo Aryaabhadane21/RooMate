@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Property Detail — RooMate</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .property-hero {
+      padding: 0 5%;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .property-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 5rem;
+      padding: 4rem 5% 10rem;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .property-img-large {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+      margin-bottom: 3rem;
+    }
+
+    .property-main h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 850;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.5rem;
+    }
+
+    .property-meta-tags {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .p-meta {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+
+    .property-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin: 4rem 0;
+      border-top: 1px solid var(--border);
+      padding-top: 4rem;
+    }
+
+    .feature-group h4 {
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+      color: var(--muted);
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .feature-list li {
+      font-weight: 500;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .property-sidebar {
+      position: sticky;
+      top: 8rem;
+      height: fit-content;
+    }
+
+    .booking-card {
+      border: 1px solid var(--primary);
+      padding: 3rem;
+      background: #fff;
+    }
+
+    .b-price {
+      font-size: 2.5rem;
+      font-weight: 950;
+      letter-spacing: -0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .b-sub {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .b-info-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .b-label {
+      font-weight: 700;
+    }
+
+    @media (max-width: 1000px) {
+      .property-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .property-img-large {
+        height: 400px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="navbar__logo">room<span>ate.</span></a>
+    <ul class="navbar__links" id="navbar-links">
+      <li><a href="listings.html">Listings</a></li>
+      <li><a href="people.html">Find People</a></li>
+      <li><a href="quiz.html">Compatibility</a></li>
+      <li><a href="profile.html">Dashboard</a></li>
+      <li><a href="quiz.html" class="navbar__cta">Find My Match</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleNav()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div id="property-content">
+  </div>
+
+  <script src="js/listings.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const id = parseInt(params.get('id'));
+      const property = listingsData.find(p => p.id === id);
+
+      if (!property) {
+        document.getElementById('property-content').innerHTML = `
+          <div style="padding: 10rem 5%; text-align: center;">
+            <h1>Property not found.</h1>
+            <a href="listings.html" class="btn btn--primary" style="margin-top: 2rem;">Back to Listings</a>
+          </div>`;
+        return;
+      }
+
+      document.getElementById('property-content').innerHTML = `
+        <div class="property-hero">
+          <img src="${property.image}" alt="${property.title}" class="property-img-large">
+        </div>
+
+        <div class="property-layout">
+          <main class="property-main">
+            <div class="property-meta-tags">
+              <span class="p-meta">${property.location}</span>
+              <span class="p-meta">${property.rooms} BHK</span>
+              <span class="p-meta">${property.baths} Bath</span>
+            </div>
+            <h1>${property.title}</h1>
+            <p style="font-size: 1.2rem; line-height: 1.6; color: var(--muted); max-width: 700px;">
+              Discover architectural elegance in this premium ${property.rooms} BHK residence. 
+              Designed for modern urban living, this space combines structural integrity 
+              with human-centric comfort.
+            </p>
+
+            <div class="property-features">
+              <div class="feature-group">
+                <h4>Lifestyle Tags</h4>
+                <ul class="feature-list">
+                  ${property.tags.map(t => `<li>✦ ${t.l}</li>`).join('')}
+                </ul>
+              </div>
+              <div class="feature-group">
+                <h4>Site Protocols</h4>
+                <ul class="feature-list">
+                  ${property.rules.map(r => `<li>✕ ${r}</li>`).join('')}
+                </ul>
+              </div>
+            </div>
+
+            <div class="feature-group">
+              <h4>Safety Parameters</h4>
+              <p style="margin-bottom:1rem; font-weight:700;">Network Security Index: ${property.safety}/100</p>
+              <div class="safety-bar" style="max-width: 400px; height: 4px;">
+                <div class="safety-bar__fill" style="width: ${property.safety}%"></div>
+              </div>
+            </div>
+          </main>
+
+          <aside class="property-sidebar">
+            <div class="booking-card">
+              <div class="b-price">₹${property.perPerson.toLocaleString('en-IN')}</div>
+              <div class="b-sub">per person / month</div>
+              
+              <div class="b-info-row">
+                <span class="b-label">Total Inventory</span>
+                <span>₹${property.total.toLocaleString('en-IN')}</span>
+              </div>
+              <div class="b-info-row">
+                <span class="b-label">Security Deposit</span>
+                <span>₹${property.deposit.toLocaleString('en-IN')}</span>
+              </div>
+              <div class="b-info-row">
+                <span class="b-label">Service Utilities</span>
+                <span>${property.util}</span>
+              </div>
+
+              <a href="quiz.html" class="btn btn--primary" style="width: 100%; margin-top: 3rem; justify-content: center;">Assess Compatibility</a>
+              <button class="btn btn--outline" style="width: 100%; margin-top: 1rem; justify-content: center;" onclick="window.print()">Download Specifications</button>
+            </div>
+          </aside>
+        </div>`;
+    });
+  </script>
+</body>
+
+</html>

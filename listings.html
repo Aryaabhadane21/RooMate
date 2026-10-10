@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RooMate — Premium Shared Housing</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="navbar__logo">room<span>ate.</span></a>
+    <ul class="navbar__links" id="navbar-links">
+      <li><a href="listings.html" class="active">Listings</a></li>
+      <li><a href="people.html">Find People</a></li>
+      <li><a href="quiz.html">Compatibility</a></li>
+      <li><a href="profile.html">Dashboard</a></li>
+      <li><a href="quiz.html" class="navbar__cta">Find My Match</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleNav()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <section class="search-section" style="margin-top: 0; padding: 0 5%;">
+    <div class="search-bar" style="box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 1px solid var(--border);">
+      <div class="search-group">
+        <label for="filter-location">Location</label>
+        <input type="text" id="filter-location" placeholder="City or District" />
+      </div>
+      <div class="search-group">
+        <label for="filter-budget">Max Budget</label>
+        <input type="number" id="filter-budget" placeholder="₹ Value" />
+      </div>
+      <div class="search-group">
+        <label for="filter-rooms">BHK</label>
+        <select id="filter-rooms">
+          <option value="0">Any</option>
+          <option value="2">2+</option>
+          <option value="3">3+</option>
+          <option value="4">4+</option>
+        </select>
+      </div>
+      <button id="search-btn" class="btn btn--primary">Update</button>
+    </div>
+  </section>
+
+  <main class="section" id="listings" style="padding-top: 0;">
+    <div class="section__header">
+      <h2>Curated Residences</h2>
+      <span class="section__count" id="listing-count">Locating...</span>
+    </div>
+
+    <div class="filter-chips">
+      <button class="chip active" data-filter="all">All</button>
+      <button class="chip" data-filter="WFH Friendly">WFH Ready</button>
+      <button class="chip" data-filter="Pet Friendly">Pet Friendly</button>
+      <button class="chip" data-filter="Quiet Hours">Quiet Hours</button>
+      <button class="chip" data-filter="Creative">Creative</button>
+    </div>
+
+    <div class="listings-grid" id="listings-grid"></div>
+  </main>
+
+
+  <script src="js/listings.js"></script>
+</body>
+
+</html>
